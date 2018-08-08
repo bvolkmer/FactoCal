@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FactoCal</title>
+    <link rel="stylesheet" type="text/css" href="css/repl.css"/>
+
+</head>
+<body>
+<h1>FactoCal</h1>
+
+<h2>Calc</h2>
+<div id="calcFrame">
+    <div id="firstProductDiv">
+        <label for="firstProductSelector">First product<select id="firstProductSelector"></select></label>
+        <label for="rate">Rate per second<input id="firstProductRate"/></label>
+        <button type="submit" id="firstProductBtn">First recipe</button>
+    </div>
+    <div id="headStep"></div>
+</div>
+
+<h2>Add</h2>
+<div id="add">
+    <div id="addProduct" class="add-container">
+        <h3>Add product</h3>
+        <label for="addProductName">Name: </label><input id="addProductName">
+        <br/>
+        <button onclick="gui.addProduct()">Add product</button>
+        <p id="addProductError" class="error"></p>
+    </div>
+    <div id="addAssembler" class="add-container">
+        <h3>Add assembler</h3>
+        <label for="addAssemblerName">Name: </label><input id="addAssemblerName">
+        <label for="addAssemblerSpeed">Speed: </label><input id="addAssemblerSpeed">
+        <br/>
+        <button onclick="gui.addAssembler()">Add assembler</button>
+        <p id="addAssemblerError" class="error"></p>
+    </div>
+    <div id="addRecipe" class="add-container">
+        <h3>Add recipe</h3>
+        <label for="addRecipeName">Name: </label><input id="addRecipeName">
+        <label for="addRecipeTime">Time: </label><input id="addRecipeTime">
+        <h4>Inputs</h4>
+        <button onclick="gui.addRecipeElement('input')">Add input</button>
+        <table id="addRecipeInput">
+            <tr>
+                <th>Product</th>
+                <th>Amount</th>
+            </tr>
+        </table>
+        <h4>Outputs</h4>
+        <button onclick="gui.addRecipeElement('output')">Add output</button>
+        <table id="addRecipeOutput">
+            <tr>
+                <th>Product</th>
+                <th>Amount</th>
+            </tr>
+        </table>
+        <br/>
+        <h4>Assembler</h4>
+        <label for="addRecipeAssemblerSelect"></label>
+        <select id="addRecipeAssemblerSelect"></select>
+        <button onclick="gui.addRecipeElement('assembler')">Add</button>
+        <table id="addRecipeAssembler"></table>
+        <br/>
+        <button onclick="gui.addRecipe()">Add recipe</button>
+        <p id="addRecipeError" class="error"></p>
+    </div>
+</div>
+
+<h2>Config</h2>
+<div id="config">
+    <label>
+        <textarea id="configOutput" class="output" readonly></textarea>
+    </label><br/>
+    <a id="configDownload">Download config</a>
+    <br/>
+    <input type="file" id="configInput" name="files[]" multiple/>
+    <button id="configLoad" onclick="loadConfig()">Load Config</button>
+</div>
+
+<script data-main="./js/main" src="./js/require.js"></script>
+
+<p>Version: 0.1.1</p>
+
+</body>
+</html>
