@@ -1,0 +1,26 @@
+.output {
+    white-space: pre;
+    overflow-wrap: normal;
+    overflow-x: hidden;
+}
+
+.step {
+    border: 1px solid black;
+    flex-grow: 1;
+    margin: 1px;
+    padding: 1em;
+}
+
+.child-container {
+    display: flex;
+}
+
+.error {
+    color: red;
+}
+
+.add-container {
+    border: 1px solid black;
+    margin: 1em;
+    padding: 1em;
+}
