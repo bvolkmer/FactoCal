@@ -7,4 +7,4 @@ It is designed to do all processing on the client computer, thus possibly offlin
 
 This project is at an very early stage and might never leave it.
 
-A demo can be found on https://factocal.x4fyr.de
+A demo can be found on https://bvolkmer.github.io/FactoCal/
