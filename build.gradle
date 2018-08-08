@@ -1,0 +1,39 @@
+plugins {
+    id 'kotlin2js' version '1.2.51'
+}
+
+group 'de.x4fyr'
+version '0.1.1'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+assemble.doLast() {
+    // Copy kotlin.js and kotlin-meta.js from jar into web directory
+    configurations.compile.each { File file ->
+        copy {
+            includeEmptyDirs = false
+
+            from zipTree(file.absolutePath)
+            into "${projectDir}/web/src/js/lib"
+            include { fileTreeElement ->
+                def path = fileTreeElement.path
+                path.endsWith(".js") && (path.startsWith("META-INF/resources/") || !path.startsWith("META-INF/"))
+            }
+        }
+    }
+}
+
+compileKotlin2Js {
+  kotlinOptions {
+    outputFile = "web/src/js/lib/${project.name}.js"
+    moduleKind = 'amd'
+  }
+}
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-js"
+    compile "org.jetbrains.kotlinx:kotlinx-html-js:0.6.10"
+    testCompile "org.jetbrains.kotlin:kotlin-test-js"
+}
