@@ -1,4 +1,4 @@
-# FactoCal
+# FactoCal (discontinued)
 A calculator for factorio assembling lines
 
 Written in kotlin for javascript
